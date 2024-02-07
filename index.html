@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>poem</title>
+    <style>
+        @font-face {
+            font-family: "Editorial Old";
+            src: url('PPEditorialOld-Regular.otf');
+        }
+
+        @font-face {
+            font-family: "Editorial Old Italic";
+            src: url('PPEditorialOld-Italic.otf');
+        }
+
+        * {
+            font-family: "Editorial Old";
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            justify-content: center;
+            padding-left: 30px;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .bubble {
+            height: 25px;
+            width: 25px;
+            background-color: white;
+            border-radius: 50%;
+            animation-name: move;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            opacity: 30%;
+            filter: drop-shadow(0px 0px 5px white);
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0vw, 100vh);
+            }
+
+            25% {
+                transform: translate(5vw, 75vh);
+            }
+
+            50% {
+                transform: translate(0vw, 50vh);
+            }
+
+            75% {
+                transform: translate(5vw, 25vh);
+            }
+
+            100% {
+                transform: translate(0vw, -10vh);
+            }
+        }
+
+        span {
+            font-size: 5vw;
+            color: white;
+            filter: drop-shadow(0px 0px 5px white);
+        }
+
+        .output {
+            font-family: "Editorial Old Italic";
+        }
+
+        .button {
+            border-radius: 50%;
+            color: cornflowerblue;
+            padding: 20px;
+            border: none;
+            background-color: white;
+            filter: drop-shadow(0px 0px 5px white);
+            align-items: center;
+            justify-content: center;
+            font-family: "Editorial Old Italic";
+            font-size: 20px;
+        }
+
+        .button-container {
+            margin: 20px;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 9999;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .cursor {
+            position: fixed;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: white;
+            z-index: 99999999;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .content {
+            z-index:9999;
+            text-align: center;
+            padding:80px;
+            height: 100vh;
+            background-color:rgb(0,0,0,0);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body style=" background-color:cornflowerblue; height:100vh;">
+
+    <div class="cursor"></div>
+
+    <div class="container">
+        <div class="bubble" style="animation-delay: -0.3s;"></div>
+        <div class="bubble" style="animation-delay: -0s;"></div>
+        <div class="bubble" style="animation-delay: -1.6s;"></div>
+        <div class="bubble" style="animation-delay: -0.7s;"></div>
+        <div class="bubble" style="animation-delay: -1s;"></div>
+        <div class="bubble" style="animation-delay: -2.0s;"></div>
+        <div class="bubble" style="animation-delay: -0.8s;"></div>
+        <div class="bubble" style="animation-delay: -2.5s;"></div>
+        <div class="bubble" style="animation-delay: -0.4s;"></div>
+        <div class="bubble" style="animation-delay: -1.8s;"></div>
+        <div class="bubble" style="animation-delay: -0s;"></div>
+        <div class="bubble" style="animation-delay: -1.3s;"></div>
+    </div>
+
+    <div style="z-index:50;	height:100vh; width:100vw; background-image: linear-gradient(white, rgb(255, 255, 255, .3), rgb(0, 0, 0, 0));position: absolute;"
+        class="content-container">
+
+    </div>
+
+    <div class="content">
+        <button onclick="changeColor()" onmouseenter="changeCursorColor()" onmouseleave="revertCursorColor()"
+            class="button button-container" style="align-self:start;" >recolor</button>
+
+        <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+            <div>
+
+                <span>In </span>
+                <span>ocean </span>
+                <span>realms </span>
+                <span>where </span>
+                <span class="emoji">🪸 </span>
+                <span class="output"> gleam</span>
+                <span>,</span> <br>
+        
+                <span class="emoji">🐟 </span>
+                <span>glide </span>
+                <span>through </span>
+                <span>a </span>
+                <span>watery </span>
+                <span class="output">dream</span>
+                <span>.</span> <br>
+        
+                <span>Bubbles </span>
+                <span>rise</span>
+                <span>, </span>
+                <span>a </span>
+                <span>ballet's </span>
+                <span class="output">embrace</span>
+                <span>,</span> <br>
+        
+                <span>Nature's </span>
+                <span>symphony</span>
+                <span>, </span>
+                <span>a </span>
+                <span class="emoji">🌊 </span>
+                <span class="output">grace</span>
+                <span>.</span>
+            </div>
+        </div>
+
+        <button onclick="reword()" onmouseenter="changeCursorColor()" onmouseleave="revertCursorColor()"
+            class="button button-container" style="align-self: end;">rewrite</button>
+
+
+    </div>
+
+    <script>
+        var body = document.querySelector('body');
+        var cursor = document.querySelector('.cursor');
+
+        body.addEventListener('mousemove', function (event) {
+            console.log(event)
+            cursor.style.top = event.clientY + 'px';
+            cursor.style.left = event.clientX + 'px';
+        })
+
+        function changeCursorColor() {
+            cursor.style.backgroundColor = "cornflowerblue";
+            cursor.style.opacity = "50%";
+        }
+
+        function revertCursorColor() {
+            cursor.style.backgroundColor = "white"
+        }
+
+        function changeColor() {
+            var blueComponent = Math.round(Math.random() * 55) + 200;  // Set a fixed blue component (adjust as needed)
+            var redComponent = Math.round(Math.random() * 150) + 0;  // Randomize red component between 200 and 255
+            var greenComponent = Math.round(Math.random() * 150) + 0;  // Randomize green component between 200 and 255
+
+            document.body.style.backgroundColor = 'rgb(' + redComponent + ',' + greenComponent + ',' + blueComponent + ')';
+        }
+
+        var textElements = document.querySelectorAll('.output');
+
+        var textOptions = [
+            "gleam",
+            "dream",
+            "embrace",
+            "grace",
+        ];
+
+        var emojiElements = document.querySelectorAll('.emoji');
+
+        var emojiOptions = [
+            "🐟 ",
+            "🐠 ",
+            "🐬 ",
+            "🦭 ",
+            "🐋 ",
+            "🫧 ",
+            "💧 ",
+            "🌊 ",
+            "🪸 ",
+        ];
+
+        function reword() {
+
+            textElements.forEach(function (element) {
+                var randomTextIndex = Math.floor(Math.random() * textOptions.length);
+                var randomTextEntry = textOptions[randomTextIndex];
+                element.innerText = randomTextEntry;
+            });
+
+            emojiElements.forEach(function (element) {
+                var randomTextIndex = Math.floor(Math.random() * emojiOptions.length);
+                var randomTextEntry = emojiOptions[randomTextIndex];
+                element.innerText = randomTextEntry;
+            });
+        }
+    </script>
+    <!-- In ocean realms where corals gleam,
+Fish glide through a watery dream.
+Bubbles rise, a ballet's embrace,
+Nature's symphony, a liquid grace. -->
+</body>
+
+</html>
